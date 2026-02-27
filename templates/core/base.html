@@ -66,6 +66,8 @@
 </header>
 {% if request.journal %}
     {% include "core/nav.html" %}
+{% elif request.repository %}
+    {% include "repository/nav.html" %}
 {% elif request.press %}
     {% include "press/nav.html" %}
 {% endif %}
