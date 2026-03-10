@@ -50,10 +50,6 @@ h4 { font-size: 1.125rem; }
 h5 { font-size: 1rem; }
 h6 { font-size: 0.875rem; }
 
-.display-4 {
-  font-size: 2.5rem;
-}
-
 .editor-name {
   font-size: 1.25rem;
 }
@@ -253,18 +249,8 @@ main a {
   color: var(--brand-primary);
 }
 
-.card-img-right {
-  height: 100%;
-  border-radius: 0 var(--border-radius) var(--border-radius) 0;
-}
-
 .card-block {
   padding: var(--spacing-lg);
-}
-
-.card-deck {
-  padding-left: var(--spacing-md);
-  padding-right: var(--spacing-md);
 }
 
 .card-title {
@@ -332,10 +318,6 @@ a.btn {
 .background-button {
   border: 0;
   background: transparent;
-}
-
-.social-share-btn {
-  border: 1px black solid;
 }
 
 .alert .close {
@@ -640,23 +622,6 @@ a.btn {
 }
 
 /* ========================================================================
-   News & Blog
-   ======================================================================== */
-.news-post {
-  margin-bottom: 4rem;
-}
-
-.news-post-title {
-  margin-bottom: 0.25rem;
-  font-size: 2.5rem;
-}
-
-.news-post-meta {
-  margin-bottom: 1.25rem;
-  color: var(--text-muted);
-}
-
-/* ========================================================================
    Journal Styles
    ======================================================================== */
 .journal-name {
@@ -848,26 +813,6 @@ span + .btn-background {
 /* ========================================================================
    Utility Classes
    ======================================================================== */
-.flex-auto {
-  flex: 0 0 auto;
-}
-
-.h-250 {
-  height: var(--card-image-height);
-}
-
-.border-top {
-  border-top: 1px solid var(--border-light);
-}
-
-.border-bottom {
-  border-bottom: 1px solid var(--border-light);
-}
-
-.box-shadow {
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
-}
-
 .white-text {
   color: var(--text-on-dark);
 }
@@ -881,17 +826,8 @@ span + .btn-background {
   color: var(--text-on-dark);
 }
 
-.responsive-img {
-  max-width: 100%;
-}
-
 .header-image {
   max-height: var(--header-height);
-}
-
-.footer-img {
-  max-width: 100%;
-  height: auto;
 }
 
 .draw-attention {
@@ -1253,16 +1189,6 @@ textarea.tinymce:focus-visible,
 /* ========================================================================
    Media Queries
    ======================================================================== */
-@media (min-width: 768px) {
-  .display-4 {
-    font-size: 3rem;
-  }
-
-  .h-md-250 {
-    height: var(--card-image-height);
-  }
-}
-
 @media screen and (max-width: 990px) {
   .article-title {
     font-size: 1.1em !important;
@@ -1333,19 +1259,6 @@ textarea.tinymce:focus-visible,
 .issue-card-inner {
   display: flex;
   height: 195px;
-}
-
-.issue-cover {
-  width: 40%;
-  overflow: hidden;
-}
-
-.issue-cover img,
-.issue-cover svg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
 }
 
 .issue-content {
@@ -1443,47 +1356,6 @@ textarea.tinymce:focus-visible,
 
 @media (min-width: 992px) {
   .preprint-card-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-/* ========================================================================
-   Article Share Section
-   ======================================================================== */
-.share-section {
-  background: var(--bg-card-alt);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.share-section h2 {
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.share-url-container {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.share-url-input {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1px solid var(--border-light);
-  border-radius: 4px;
-  font-size: 0.9rem;
-  background: var(--bg-content);
-}
-
-.copy-button {
-  padding: 0.5rem 1rem;
-  background: var(--brand-primary);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  cursor: pointer;
 }
 
 /* ========================================================================
