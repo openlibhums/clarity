@@ -3,8 +3,6 @@ import shutil
 
 from django.conf import settings
 
-from journal import models as journal_models
-
 
 def copy_file(source, destination):
     """
@@ -29,33 +27,15 @@ def create_paths():
         os.makedirs(os.path.join(base_path, folder), exist_ok=True)
 
 
-def process_journals():
-    journals = journal_models.Journal.objects.all()
-
-    for journal in journals:
-        for file in journal.scss_files:
-            if file.endswith("clean_override.css"):
-                print(f"Copying clean override file for {journal.name}")
-
-                override_css_file = os.path.join(
-                    settings.BASE_DIR,
-                    "static",
-                    "clarity",
-                    "css",
-                    f"journal{journal.id}_override.css",
-                )
-
-                copy_file(file, override_css_file)
-
 
 def copy_theme_files():
     """Copy theme CSS and JS files to static directory."""
     theme_files = [
         ("css", "clarity.css"),
+        ("css", "light-mode-settings.css"),
         ("css", "evergreen.css"),
         ("css", "ocean.css"),
         ("css", "cardinal.css"),
-        ("css", "midnight.css"),
         ("js", "tooltip-init.js"),
     ]
 
@@ -72,5 +52,3 @@ def build():
     print("Copying theme files")
     copy_theme_files()
 
-    print("Processing journal overrides")
-    process_journals()
