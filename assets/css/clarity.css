@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 
-/* Palette Selection - Use only one palette */
-@import url('/static/clarity/css/evergreen.css');
-/* @import url('/static/clarity/css/evergreen.css'); */
-/* @import url('/static/clean/css/ocean.css'); */
-/* @import url('/static/clean/css/cardinal.css'); */
-
 /* ========================================================================
    Base Styles
    ======================================================================== */
@@ -74,6 +68,13 @@ main.container {
   padding-right: 0;
 }
 
+@media screen and (max-width: 764px) {
+  main.container {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+}
+
 .site-header .container,
 .navbar .container {
   padding-inline: 0;
@@ -106,7 +107,7 @@ main a {
    ======================================================================== */
 .navbar {
   padding: 0;
-  border-bottom: 1px solid var(--border-gray-200);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .navbar-custom .navbar-nav .nav-link,
@@ -541,7 +542,7 @@ a.btn {
   padding: 9px;
   justify-content: flex-end;
   min-height: fit-content;
-  box-sizing: border-box;  
+  box-sizing: border-box;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -875,7 +876,7 @@ span + .btn-background {
 
 .superscript-icon {
    vertical-align: super;
-   font-size: 0.7em !important; 
+   font-size: 0.7em !important;
 }
 
 .pad-icon {
@@ -1037,6 +1038,13 @@ span + .btn-background {
   list-style-type: none;
 }
 
+.table-foot .table-footnotes li.fn a,
+a.fn-backref {
+  display: inline-block;
+  min-width: 24px;
+  min-height: 24px;
+}
+
 /* ========================================================================
    Modal
    ======================================================================== */
@@ -1178,6 +1186,11 @@ textarea.tinymce:focus-visible,
   box-shadow: 0 0 0 var(--focus-ring-size) var(--focus-shadow);
 }
 
+.form-control:valid,
+.form-control:invalid {
+  background-image: none;
+}
+
 .carousel-control-next:focus-visible,
 .carousel-control-prev:focus-visible{
   outline: 2px var(--focus-outline) solid;
@@ -1200,12 +1213,7 @@ textarea.tinymce:focus-visible,
     font-size: 0.9em !important;
   }
 
-  p {
-    font-size: 0.7em !important;
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .card-img-overlay {
+.card-img-overlay {
     padding: 10px;
   }
 
