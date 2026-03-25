@@ -1,21 +1,11 @@
 :root {
-  /* Brand & Theme Colors */
-  --brand-primary: #1e3a5f;
-  --brand-secondary: #5a7a9e;
-  --text-link-alt: #2563a8;
-  --focus-shadow: #2a4a6e;
-  --color-success: #5cb85c;
-    /* Highlight color (shared across themes) */
-  --highlight-color: #FFEB3B;
-
   /* Text Colors */
   /* Must pass WCAG color contrast at --recede-opacity */
   --text-primary: #212529;
   --text-muted: #747474;
-  --text-on-dark: white;
+  --text-on-dark: #fff;
   --text-link: var(--body-text);
   --text-black: #000;
-  --text-white: #fff;
   --text-header: var(--text-black);
   --body-text: #525252;
   --nav-text: #636363;
@@ -34,33 +24,31 @@
 
   /* Background Colors */
   --bg-body: #fff;
-  --bg-content: white;
-  --bg-footer: #FCFCFC;
+  --bg-content: #fff;
+  --bg-footer: #fcfcfc;
   --bg-card-alt: #f8f9fa;
-  --bg-blockquote: #F0F0F0;
+  --bg-blockquote: #f0f0f0;
   --bg-overlay: rgba(55, 55, 55, 0.8);
 
   /* UI State Colors */
-  --color-success: green;
-  --color-danger: darkred;
+  --color-success: #5cb85c;
+  --color-danger: #8b0000;
 
   /* Border Colors */
   --border-light: #e5e5e5;
   --border-medium: #6c757d;
-  --border-gray-200: rgb(229, 231, 235);
 
   /* Header & Navigation */
   --header-bg: var(--brand-primary);
-  --bg-nav: #fefeff;
 
   /* Button Colors */
   --btn-primary-bg: var(--brand-primary);
   --btn-primary-border: var(--brand-primary);
-  --btn-primary-text: white;
+  --btn-primary-text: #fff;
   --btn-outline-secondary: #6c757d;
 
   /* Focus & Accessibility */
-  --focus-outline: #F9F9F9;
+  --focus-outline: #f9f9f9;
   --focus-ring-size: 4px;
 
   /* Typography */
@@ -75,7 +63,7 @@
 
   /* Sizes */
   --border-radius: 3px;
-  --border-radius-lg: 2rem;
+  --border-radius-lg: 32px;
   --header-height: 120px;
   --footer-height: 70px;
   --card-image-height: 250px;
@@ -85,7 +73,7 @@
   /* Transitions */
   --transition-standard: all 1s ease;
 
-  /* Pagination Colors - Light Mode */
+  /* Pagination Colors */
   --pagination-color: var(--body-text);
   --pagination-bg: var(--bg-content);
   --pagination-border: var(--border-light);
