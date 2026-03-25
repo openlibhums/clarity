@@ -12,12 +12,12 @@
             <h1>{% trans "Articles" %}</h1>
         </div>
         <div class="col-md-8">
-            <section aria-label="{% trans 'Results' %}">
+            <section aria-label="{% trans 'Results' %}" class="py-3">
                 {% include "elements/sorting.html" with form_id=facet_form.id %}
                 {% for article in article_list %}
                     {% include "elements/article_listing.html" with article=article %}
                 {% empty %}
-                    <strong>{% trans 'No articles to display.' %}</strong>
+                    <p class="my-4">{% trans 'No articles to display.' %}</p>
                 {% endfor %}
                 {% include "elements/pagination.html" with form_id=facet_form.id %}
             </section>
