@@ -20,8 +20,29 @@ REPOSITORY_THEMES = [
 
 ## Colour Palettes
 
-Clarity ships with five palettes: `evergreen`, `ocean`, `cardinal` and `midnight` (dark mode). To switch, edit the `@import` line near the top of `clarity.css`:
+Clarity ships with four palettes:
+
+| Palette | Description |
+|---------|-------------|
+| `evergreen` | Dark green header (default) |
+| `ocean` | Dark blue header |
+| `cardinal` | Dark red header |
+| `paper` | White header with neutral accents, suited to journals with prominent logos |
+
+### Changing the palette for a journal
+
+Each journal can select its palette via **Manager > All Settings**, search for **Clarity Palette**, and set the value to one of the palette names above. The default is `evergreen`.
+
+### Fine-grained customisation
+
+For more control, use the custom styling plugin. It loads after the palette CSS so any declarations take precedence via the cascade.
+
+**Override individual variables** to tweak colours without switching palette entirely:
 
 ```css
-@import url('/static/clarity/css/evergreen.css');
+:root {
+  --brand-primary: #your-colour;
+  --brand-secondary: #your-colour;
+  --header-bg: #your-colour;
+}
 ```
