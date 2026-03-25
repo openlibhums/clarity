@@ -291,6 +291,12 @@
                                   </ul>
                               {% endif %}
                           {% endif %}
+                          {% if editorial_log %}
+                              <h2>{% trans "Editorial Log" %}</h2>
+                              <ul>
+                                  <li><a href="#" data-toggle="modal" data-target="#editorialLogModal">{% trans "View Editorial Timeline" %}</a></li>
+                              </ul>
+                          {% endif %}
 
                       {% if not request.journal.disable_metrics_display %}
                       <h2>{% trans "Metrics" %}</h2>
@@ -405,6 +411,9 @@
     {% for table in tables_in_galley %}
         {% include "elements/journal/table_modal.html" with content=table.content tableid=table.id %}
     {% endfor %}
+    {% if editorial_log %}
+        {% include "elements/journal/editorial_log_modal.html" %}
+    {% endif %}
 
 {% endblock body %}
 
