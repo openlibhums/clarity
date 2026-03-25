@@ -2,7 +2,7 @@
 {% load i18n hooks press_url %}
 {% get_current_language as current_language %}
 <!DOCTYPE html>
-<html lang="{{ current_language }}">
+<html lang="{{ current_language }}" data-clarity-palette="{{ journal_settings.general.clarity_palette|default:'evergreen' }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,6 +25,7 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="{% static "clarity/css/palettes.css" %}" rel="stylesheet">
     <link href="{% static "clarity/css/clarity.css" %}" rel="stylesheet">
     <link href="{% static "common/css/index.css" %}" rel="stylesheet">
     {% block css %}{% endblock %}
@@ -37,11 +38,12 @@
     <div id="journal-title" class="container">
         <div class="row">
             {% if request.journal and request.journal.header_image %}
+                {% get_alt_text file_path=request.journal.header_image default=request.journal.name as header_alt_text %}
                 <div class="col-md-3">
                     <a href="{{ request.journal.site_url }}" aria-label="{% trans 'Home' %}">
                         <img src="{{ request.journal.header_image.url }}"
                              class="img-fluid header-image top-bar-image"
-                             alt="{{ request.journal.name }} logo">
+                             alt="{{ header_alt_text }}">
                     </a>
                 </div>
 
@@ -56,8 +58,9 @@
                         {% svg request.press_cover %}
                         <span class="sr-only">{{ request.press.name }}</span>
                     {% else %}
+                        {% get_alt_text obj=request.press.thumbnail_image default=request.press.name as press_logo_alt %}
                         <img class="img-fluid header-image top-bar-image" src="{% url 'press_cover_download' %}"
-                                         alt="{{ request.press.name }} logo">
+                                         alt="{{ press_logo_alt }}">
                     {% endif %}
                 </div>
         {% endif %}
