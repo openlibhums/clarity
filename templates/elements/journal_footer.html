@@ -2,8 +2,8 @@
 {% load next_url %}
 <div class="row">
     <div class="col-md-6">
-        <small><div class="text-left">
-            <ul class="list-inline">
+        <div class="text-left">
+            <ul class="list-unstyled">
             {% if request.journal.issn %}<li>ISSN: {{ request.journal.issn }}</li>{% endif %}
             {% if request.journal.print_issn %}<li> {% trans 'Print ISSN' %}: {{ request.journal.print_issn }}</li>{% endif %}
             {% if journal_settings.general.publisher_name %}
@@ -22,11 +22,10 @@
                 </li>
             {% endif %}
             </ul>
-        </div></small>
+        </div>
     </div>
     <div class="col-md-6 text-right">
-        <small>
-            <ul class="list-inline">
+            <ul class="list-unstyled">
                 {% for item in journal.press.navigation_items %}
                     {% if item.for_footer and item.extend_to_journals %}
                         <li>
@@ -80,15 +79,12 @@
                     </li>
                 {% endif %}
             </ul>
-            </small>
     </div>
 </div>
 {% if request.journal.press.journal_footer_text %}
     <div class="row">
         <div id="presswide_footer_text" class="col text-left">
-            <small>
-                {{ request.journal.press.journal_footer_text|safe }}
-            </small>
+            {{ request.journal.press.journal_footer_text|safe }}
         </div>
     </div>
 {% endif %}
