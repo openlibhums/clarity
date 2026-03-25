@@ -38,7 +38,7 @@
         {% empty %}
             <div class="col-md-12">
                 <h2>
-                    {% trans "This journal currently has no " %} {{ journal_settings.news.news_title }} {% trans "items to display." %}
+                    {% blocktrans with news_title=journal_settings.news.news_title %}This journal currently has no {{ news_title }} items to display.{% endblocktrans %}
                 </h2>
             </div>
         {% endfor %}

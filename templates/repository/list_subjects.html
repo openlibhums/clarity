@@ -8,7 +8,7 @@
 <div class="row">
   <div class="col-md-12">
     <h1>{% trans 'Subjects' %}</h1>
-    <p>{% trans 'Select a subject to view' %} {{ request.repository.object_name_plural }} {% trans 'in that subject.' %}</p>
+    <p>{% blocktrans with object_name_plural=request.repository.object_name_plural %}Select a subject to view {{ object_name_plural }} in that subject.{% endblocktrans %}</p>
     <ul id="subjects" class="tree">
       {% include "common/repository/subject_tree.html" with subjects=top_level_subjects %}
     </ul>
