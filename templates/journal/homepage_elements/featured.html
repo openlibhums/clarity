@@ -16,12 +16,12 @@
                                 alt="{{ image_alt }}"
                                 class="card-img-top">
                         {% elif fa.article.issue.large_image %}
-                            {% get_alt_text file_path=fa.article.issue.large_image.url default=fa.article.title|striptags as image_alt %}
+                            {% get_alt_text file_path=fa.article.issue.large_image default=fa.article.title|striptags as image_alt %}
                             <img src="{{ fa.article.issue.large_image.url }}"
                                 alt="{{ image_alt }}"
                                 class="card-img-top">
                         {% elif fa.article.journal.default_large_image %}
-                            {% get_alt_text file_path=fa.article.journal.default_large_image.url default=fa.article.title|striptags as image_alt %}
+                            {% get_alt_text file_path=fa.article.journal.default_large_image default=fa.article.title|striptags as image_alt %}
                             <img src="{{ fa.article.journal.default_large_image.url }}"
                                 alt="{{ image_alt }}"
                                 class="card-img-top">
