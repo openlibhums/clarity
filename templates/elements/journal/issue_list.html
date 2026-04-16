@@ -6,6 +6,11 @@
     {% for issue in issues %}
         <section class="issue-card">
             <div class="issue-card-inner">
+                {% if issue.cover_image %}
+                <div class="issue-cover">
+                    <img src="{{ issue.cover_image.url }}" alt="{{ issue.display_title }}">
+                </div>
+                {% endif %}
                 <div class="issue-content">
                     {% if level == "deep" %}
                         <h3 class="issue-title" id="issue-title-{{ forloop.counter }}">
