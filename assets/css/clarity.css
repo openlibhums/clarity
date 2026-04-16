@@ -844,8 +844,31 @@ span + .btn-background {
     z-index: 999;
 }
 
+/* #3611: Remove excess gap between caption and table */
 .table-caption {
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0;
+}
+
+/* #3611: Add breathing room after figure and table blocks */
+.table-wrap,
+.fig-inline-img-set {
+  margin-bottom: 2rem;
+}
+
+/* #2467: Remove line break between figure label and caption text */
+.fig-caption .fig-label {
+  display: inline;
+}
+.fig-caption p:first-of-type {
+  display: inline;
+}
+
+/* #3503: Ensure nested bullet lists always show bullets regardless of parent list type */
+.list-unord {
+  list-style-type: disc;
+}
+.list-unord .list-unord {
+  list-style-type: circle;
 }
 
 .math-formulae {
