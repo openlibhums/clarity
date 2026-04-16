@@ -1289,11 +1289,23 @@ textarea.tinymce:focus-visible,
 
 .issue-card-inner {
   display: flex;
-  height: 195px;
+  min-height: 195px;
+}
+
+.issue-cover {
+  flex-shrink: 0;
+  width: 140px;
+}
+
+.issue-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .issue-content {
-  width: 60%;
+  flex: 1;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -1331,8 +1343,8 @@ textarea.tinymce:focus-visible,
     gap: 1rem;
   }
 
-  .issue-card-inner {
-    height: 200px;
+  .issue-cover {
+    width: 110px;
   }
 
   .issue-content {
