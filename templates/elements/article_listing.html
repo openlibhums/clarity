@@ -77,6 +77,11 @@
                     </a>
                 </li>
                 {% endif %}
+                {% if article.section %}
+                <li class="list-inline-item meta-item">
+                    <i aria-hidden="true" class="fa fa-tag"></i> {{ article.section.name }}
+                </li>
+                {% endif %}
             </ul>
 
             {% if article.issues.count > 1 %}
