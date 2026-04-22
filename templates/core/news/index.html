@@ -59,7 +59,7 @@
                 {% for page in news_items|slice_pages_with_first_last_ellipsis:2 %}
                     {% if page == '...' %}
                         <li class="list-inline-item">
-                            <span class="btn btn-outline-secondary" disabled>...</span>
+                            <span class="btn btn-outline-secondary disabled" aria-hidden="true">...</span>
                         </li>
                     {% elif news_items.number == page.number %}
                         <li class="list-inline-item">
