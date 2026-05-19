@@ -130,6 +130,25 @@
                   </a>
                 </li>
             {% endif %}
+            {% if journal_settings.general.accessibility_mode or not request.journal %}
+            <li class="nav-item a11y-toggle-host">
+                {% include "common/elements/accessibility_mode_toggle.html" %}
+            </li>
+            <li class="nav-item dropdown d-lg-none a11y-mobile-item">
+                <button class="nav-link dropdown-toggle dropdown-button" id="a11y-mobile-trigger"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {% trans 'Accessibility' %}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="a11y-mobile-trigger">
+                    <li>
+                        {% include "common/elements/accessibility_mode_mobile_button.html" with button_class="dropdown-item" %}
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'accessibility' %}">{% trans 'About accessibility' %}</a>
+                    </li>
+                </ul>
+            </li>
+            {% endif %}
         </ul>
 
     </div>

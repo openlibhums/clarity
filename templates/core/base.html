@@ -2,7 +2,7 @@
 {% load i18n hooks press_url %}
 {% get_current_language as current_language %}
 <!DOCTYPE html>
-<html lang="{{ current_language }}" data-clarity-palette="{{ journal_settings.general.clarity_palette|default:'evergreen' }}">
+<html lang="{{ current_language }}" data-clarity-palette="{% if accessibility_mode_active %}paper{% else %}{{ journal_settings.general.clarity_palette|default:'evergreen' }}{% endif %}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -102,6 +102,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+<script src="{% static "common/js/accessibility-toggle.js" %}"></script>
 {% block js %}{% endblock %}
 </body>
 </html>
