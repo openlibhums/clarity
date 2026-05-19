@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const toc = document.getElementById('toc');
-    const tocSection = toc && toc.closest('.col-md-4');
+    const tocSection = toc && (toc.closest('.col-md-4') || document.getElementById('toc-section'));
 
     if (!toc || !tocSection) {
         return;
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const headings = document.querySelectorAll('#main_article h2');
 
     if (headings.length === 0) {
-        tocSection.style.display = 'none';
+        tocSection.remove();
         return;
     }
 
