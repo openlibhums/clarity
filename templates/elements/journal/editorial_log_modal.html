@@ -20,19 +20,19 @@
                         {% for entry in editorial_log %}
                             {% if entry.is_comment %}
                                 {% if entry.comment.public %}
-                                <tr>
-                                    <td>{{ entry.date|date:"d M Y" }}</td>
-                                    <td>
-                                        <strong>{{ entry.type }}</strong><br>
-                                        {{ entry.description|safe }}
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>{{ entry.date|date:"d M Y" }}</td>
+                                        <td>
+                                            <strong>{{ entry.type }}</strong><br>
+                                            {{ entry.description|safe }}
+                                        </td>
+                                    </tr>
                                 {% endif %}
                             {% else %}
-                            <tr>
-                                <td>{{ entry.date|date:"d M Y" }}</td>
-                                <td>{{ entry.description }}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{ entry.date|date:"d M Y" }}</td>
+                                    <td>{{ entry.description }}</td>
+                                </tr>
                             {% endif %}
                         {% endfor %}
                     </tbody>

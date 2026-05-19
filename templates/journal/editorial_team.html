@@ -12,14 +12,14 @@
 
     {% for group in editorial_groups %}
         {% if not journal_settings.styling.hide_editorial_group_names %}
-        <div class="row">
-            <div class="col-md-12">
-                <h2>{{ group.name }}</h2>
-                {% if group.description %}
-                    <p>{{ group.description|safe }}</p>
-                {% endif %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{ group.name }}</h2>
+                    {% if group.description %}
+                        <p>{{ group.description|safe }}</p>
+                    {% endif %}
+                </div>
             </div>
-        </div>
         {% endif %}
 
         <div class="row">
@@ -38,9 +38,9 @@
                                 <p class="card-text">
                                     <small class="text-muted">
                                         <a href="{% url 'core_public_profile' member.user.uuid %}"
-                                            aria-describedby="card-{{ member.id }}"
-                                            >
-                                           {% trans 'View Profile' %}
+                                           aria-describedby="card-{{ member.id }}"
+                                        >
+                                            {% trans 'View Profile' %}
                                         </a>
                                     </small>
                                 </p>

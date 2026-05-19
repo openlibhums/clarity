@@ -7,9 +7,9 @@
         <section class="issue-card">
             <div class="issue-card-inner">
                 {% if issue.cover_image %}
-                <div class="issue-cover">
-                    <img src="{{ issue.cover_image.url }}" alt="{{ issue.display_title }}">
-                </div>
+                    <div class="issue-cover">
+                        <img src="{{ issue.cover_image.url }}" alt="{{ issue.display_title }}">
+                    </div>
                 {% endif %}
                 <div class="issue-content">
                     {% if level == "deep" %}
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </section>
-        {% empty %}
+    {% empty %}
         <div class="no-issues">
             <div class="alert alert-info" role="status">
                 <p class="mb-0">{% trans 'This journal has no issues' %}.</p>

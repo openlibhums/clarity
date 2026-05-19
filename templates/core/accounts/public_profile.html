@@ -4,8 +4,8 @@
 {% block title %}{{ user.full_name }} {% trans 'Profile' %}{% endblock %}
 
 {% block body %}
-	<section id="content">
-		<div class="row">
+    <section id="content">
+        <div class="row">
             <div class="col-md-3">
                 {% include "common/elements/profile_image.html" with classes="thumbnail img-fluid editorial-image" user=user %}
                 <br />
@@ -35,6 +35,6 @@
                     {% endfor %}
                 {% endif %}
             </div>
-		</div>
-	</section>
+        </div>
+    </section>
 {% endblock %}

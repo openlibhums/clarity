@@ -43,14 +43,14 @@
                     {% elif news_items.number == page.number %}
                         <li class="list-inline-item">
                             <a href="?page={{ page.number }}"
-                                class="btn btn-primary">
+                               class="btn btn-primary">
                                 <span class="sr-only">{% trans 'current page' %}</span>{{ page.number }}
                             </a>
                         </li>
                     {% else %}
                         <li class="list-inline-item">
                             <a href="?page={{ page.number }}"
-                                class="btn btn-outline-primary">
+                               class="btn btn-outline-primary">
                                 <span class="sr-only">{% trans 'page' %}</span>{{ page.number }}
                             </a>
                         </li>
