@@ -13,40 +13,40 @@
                         {% if fa.article.large_image_file %}
                             {% get_alt_text obj=fa.article.large_image_file default=fa.article.title|striptags as image_alt %}
                             <img src="{% url 'article_file_download' 'id' fa.article.id fa.article.large_image_file.id %}"
-                                alt="{{ image_alt }}"
-                                class="card-img-top">
+                                 alt="{{ image_alt }}"
+                                 class="card-img-top">
                         {% elif fa.article.issue.large_image %}
                             {% get_alt_text file_path=fa.article.issue.large_image default=fa.article.title|striptags as image_alt %}
                             <img src="{{ fa.article.issue.large_image.url }}"
-                                alt="{{ image_alt }}"
-                                class="card-img-top">
+                                 alt="{{ image_alt }}"
+                                 class="card-img-top">
                         {% elif fa.article.journal.default_large_image %}
                             {% get_alt_text file_path=fa.article.journal.default_large_image default=fa.article.title|striptags as image_alt %}
                             <img src="{{ fa.article.journal.default_large_image.url }}"
-                                alt="{{ image_alt }}"
-                                class="card-img-top">
+                                 alt="{{ image_alt }}"
+                                 class="card-img-top">
                         {% else %}
                             <img src="{% static 'common/img/sample/article-small.jpg' %}"
-                                alt="{{ fa.article.title|striptags }}"
-                                class="card-img-top">
+                                 alt="{{ fa.article.title|striptags }}"
+                                 class="card-img-top">
                         {% endif %}
                     {% endif %}
-                <div class="card-body">
-                    <h3 id="{{fa.article.pk}}-title" class="sr-only">{{ fa.article.title }}</h3>
-                    <p class="card-text">{{ fa.article.author_list }}</p>
-                    <p class="card-text"><strong>
-                        {% if fa.article.is_remote %}
-                            <a href="{{ fa.article.remote_url }}" target="_blank">
-                                {{ fa.article.title|safe|truncatechars:200 }}
-                                {% include "elements/icons/link_external.html" %} 
-                            </a>
-                        {% else %}
-                            <a href="{{ fa.article.url }}">
-                                {{ fa.article.title|safe|truncatechars:200 }}
-                            </a>
-                        {% endif %}
-                    </strong></p>
-                  </div>
+                    <div class="card-body">
+                        <h3 id="{{fa.article.pk}}-title" class="sr-only">{{ fa.article.title }}</h3>
+                        <p class="card-text">{{ fa.article.author_list }}</p>
+                        <p class="card-text"><strong>
+                            {% if fa.article.is_remote %}
+                                <a href="{{ fa.article.remote_url }}" target="_blank">
+                                    {{ fa.article.title|safe|truncatechars:200 }}
+                                    {% include "elements/icons/link_external.html" %}
+                                </a>
+                            {% else %}
+                                <a href="{{ fa.article.url }}">
+                                    {{ fa.article.title|safe|truncatechars:200 }}
+                                </a>
+                            {% endif %}
+                        </strong></p>
+                    </div>
                 </div>
             </div>
         {% endfor %}

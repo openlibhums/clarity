@@ -26,12 +26,12 @@
                         </span>
                     </div>
                     <div class="card-footer">
-                      <a href="{% url 'core_news_item' item.pk %}"
-                         aria-describedby="news-item-{{ item.pk }}"
-                         class="btn btn-outline-secondary">
-                        {% trans 'Read More' %}
-                        <i aria-hidden="true" class="fa fa-arrow-right"></i>
-                      </a>
+                        <a href="{% url 'core_news_item' item.pk %}"
+                           aria-describedby="news-item-{{ item.pk }}"
+                           class="btn btn-outline-secondary">
+                            {% trans 'Read More' %}
+                            <i aria-hidden="true" class="fa fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -48,9 +48,9 @@
             <ul class="d-flex justify-content-center list-inline">
                 {% if news_items.has_previous %}
                     <li class="list-inline-item">
-                        <a href="?page={{ news_items.previous_page_number }}" 
-                            class="btn btn-outline-primary"
-                            >
+                        <a href="?page={{ news_items.previous_page_number }}"
+                           class="btn btn-outline-primary"
+                        >
                             {% include "elements/icons/page_previous.html" %}
                         </a>
                     </li>
@@ -64,16 +64,16 @@
                     {% elif news_items.number == page.number %}
                         <li class="list-inline-item">
                             <a href="?page={{ page.number }}"
-                                class="btn btn-primary"
-                                >
+                               class="btn btn-primary"
+                            >
                                 <span class="sr-only">{% trans 'current page' %}</span>{{ page.number }}
                             </a>
                         </li>
                     {% else %}
                         <li class="list-inline-item">
                             <a href="?page={{ page.number }}"
-                                class="btn btn-outline-primary"
-                                >
+                               class="btn btn-outline-primary"
+                            >
                                 <span class="sr-only">{% trans 'page' %}</span>{{ page.number }}
                             </a>
                         </li>

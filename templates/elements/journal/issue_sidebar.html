@@ -3,13 +3,13 @@
     <div class="sticky" data-sticky data-margin-top="0" data-sticky data-anchor="issue_top">
         <div class="section">
             {% if issue.galley %}
-            <h2>{% trans 'Downloads' %}</h2>
-            <p>
-                <a href="{% url 'journal_issue_download_galley' issue.pk issue.galley.pk %}">
-                    {% trans 'Issue' %} (PDF)
-                    {% include "elements/icons/link_download.html" %}
-                </a>
-            </p>
+                <h2>{% trans 'Downloads' %}</h2>
+                <p>
+                    <a href="{% url 'journal_issue_download_galley' issue.pk issue.galley.pk %}">
+                        {% trans 'Issue' %} (PDF)
+                        {% include "elements/icons/link_download.html" %}
+                    </a>
+                </p>
             {% endif %}
             <h2 id="archive-title">
                 {% if issue.issue_type.code == 'issue' %}{% trans "Issue Archive" %}
@@ -22,16 +22,16 @@
                         <li>
                             <span class="sr-only"></span>
                             <span aria-label='{{ issue.display_title_a11y }}'>
-                                {{ issue.display_title }} 
+                                {{ issue.display_title }}
                             </span>
-                            ({{ issue.articles.all.count}}) 
+                            ({{ issue.articles.all.count}})
                             <span class="sr-only">{% trans 'Articles' %} {% trans 'this page' %}</span>
                         </li>
                     {% elif issue_item.issue_type.code == 'issue' %}
                         <li><a href="{% url 'journal_issue' issue_item.id %}" aria-label='{{ issue_item.display_title_a11y }}'>
-                            {{ issue_item.display_title }} 
+                            {{ issue_item.display_title }}
                         </a>
-                        ({{ issue_item.articles.all.count}}) <span class="sr-only">{% trans 'Articles' %}</span></li>
+                            ({{ issue_item.articles.all.count}}) <span class="sr-only">{% trans 'Articles' %}</span></li>
                     {% else %}
                         <li><a href="{% url 'journal_collection' issue_item.id %}">{{ issue_item.issue_title }} </a></li>
                     {% endif %}

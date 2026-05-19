@@ -10,9 +10,9 @@
             </div>
             <div class="modal-body">
                 {% if article.non_specialist_summary %}
-                {{ article.non_specialist_summary|safe }}
+                    {{ article.non_specialist_summary|safe }}
                 {% else %}
-                <p>{% trans 'This article has no summary' %}</p>
+                    <p>{% trans 'This article has no summary' %}</p>
                 {% endif %}
             </div>
 

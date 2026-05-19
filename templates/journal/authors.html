@@ -20,26 +20,26 @@
                         <p>
                             <small>{{ author.affiliation }}</small>
                         </p>
-                        
+
                         {% if author.enable_public_profile %}
                             <p>
                                 <small>
                                     <a href="{% url 'core_public_profile' author.uuid %}"
-                                        id="profile-link-{{ author.id }}"
-                                        aria-labelledby="profile-link-{{ author.id }} card-{{ author.id }}"
-                                        >
+                                       id="profile-link-{{ author.id }}"
+                                       aria-labelledby="profile-link-{{ author.id }} card-{{ author.id }}"
+                                    >
                                         {% trans 'View Profile' %}
                                     </a>
                                 </small>
                             </p>
                         {% endif %}
-                        
+
                         {% include "elements/journal/editorial_social_content.html" with user=author %}
                     </div>
                 </div>
             </div>
         {% endfor %}
-        
+
     </div>
 
 {% endblock body %}
