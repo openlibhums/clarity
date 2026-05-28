@@ -703,6 +703,7 @@ section[aria-label*="Results"] .article-item {
 .sticky-top {
   max-height: 100vh;
   overflow-y: auto;
+  z-index: 999;
 }
 
 /* ========================================================================
