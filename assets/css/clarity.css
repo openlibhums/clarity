@@ -568,6 +568,16 @@ a.btn {
     font-style: normal;
 }
 
+/* FontAwesome glyphs are <i class="fa">; the rules above (and the Verdana
+   override) would otherwise replace the icon font with letters. Keep the
+   icon font and drop the emphasis treatment for icons specifically. */
+.dyslexia-friendly .fa,
+.dyslexia-friendly [class^="fa-"],
+.dyslexia-friendly [class*=" fa-"] {
+    font-family: "FontAwesome" !important;
+    background-color: transparent;
+}
+
 .dyslexia-friendly a {
     font-family: inherit;
     color: inherit;
