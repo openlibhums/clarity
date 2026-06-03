@@ -1109,6 +1109,10 @@ a.fn-backref {
   color: var(--text-link);
 }
 
+/* Reveal the skip link whenever focus is anywhere in the container (the link
+   or the accessibility toggle beside it), so it stays visible until focus
+   leaves the area rather than re-hiding the moment focus moves to the toggle. */
+.skip-container:focus-within a,
 .skip-container a:focus,
 .skip-container a:active {
   position: static;
