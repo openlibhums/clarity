@@ -535,54 +535,366 @@ a.btn {
   padding-bottom: var(--spacing-sm);
 }
 
-#reading-options{
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 9px;
-  justify-content: flex-end;
-  min-height: fit-content;
-  box-sizing: border-box;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: fit-content;
-  margin-left: auto;
-  background-color: var(--bg-body);
-}
+
 
 .btn-opt {
     border: 1px solid #1C304A;
     background: #f1f1f1;
 }
 
-.dyslexia-friendly {
-    font-family: Verdana !important;
-    color: #4c4c4c;
-    background-color: #F5F5DC;
+
+/* ========================================================================
+   Reading Options bar — shared reading_options_bar.html
+   ======================================================================== */
+
+/* styling the options bar */
+
+#article_opener .card {
+  margin-bottom: 0 !important;
 }
 
-.dyslexia-friendly em,
-.dyslexia-friendly i {
-    background-color: #FAFAC8;
-    font-style: normal;
+.reading-options-landmark {
+  display: contents;
 }
 
-/* FontAwesome glyphs are <i class="fa">; the rules above (and the Verdana
-   override) would otherwise replace the icon font with letters. Keep the
-   icon font and drop the emphasis treatment for icons specifically. */
-.dyslexia-friendly .fa,
-.dyslexia-friendly [class^="fa-"],
-.dyslexia-friendly [class*=" fa-"] {
-    font-family: "FontAwesome" !important;
-    background-color: transparent;
+.reading-options-bar {
+  position: sticky;
+  top: 0;
+  z-index: 800;
+
+  margin: -20px -20px 0;
 }
 
-.dyslexia-friendly a {
-    font-family: inherit;
-    color: inherit;
-    text-decoration: underline;
+.mini-bar {
+  width: 100%;
+  background: #e6e6e6;
+  border-bottom: 1px solid #d5d5d5;
+  /* The banner card's original 15px bottom gap, relocated to below the bar. */
+  margin-bottom: 15px;
 }
+
+/* article padding needed for neat edges when given a background */
+#article {
+  padding: 1rem;
+}
+
+.mini-bar .row,
+.mini-bar #options-menu,
+.mini-bar #options-menu > div,
+.mini-bar #options-menu > div > div {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mini-bar ul.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Toolbar: the top-level horizontal control list, right-aligned. */
+.mini-bar ul.menu.medium-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0.75rem;
+}
+
+.mini-bar ul.menu.medium-horizontal > li {
+  position: relative; /* anchor for the dropdown panes */
+}
+
+.mini-bar ul.menu.medium-horizontal > li > button,
+.mini-bar ul.menu.medium-horizontal > li > a {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 0.75rem;
+  margin: 0;
+  background: none;
+  border: none;
+  color: #595959;
+  font: inherit;
+  line-height: normal;
+  text-transform: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mini-bar ul.menu.medium-horizontal > li > button:hover,
+.mini-bar ul.menu.medium-horizontal > li > a:hover,
+.mini-bar ul.menu.medium-horizontal > li > button:focus,
+.mini-bar ul.menu.medium-horizontal > li > a:focus {
+  background: rgba(0, 0, 0, 0.06);
+  color: #595959;
+}
+
+.mini-bar ul.menu i {
+  margin-right: 0.4rem;
+}
+.mini-bar ul.menu .fa-caret-down {
+  margin-left: 0.4rem;
+  margin-right: 0;
+}
+
+/* Dropdown panes (font, colour scheme). Hidden until the parent item is hovered
+   or contains focus. */
+.mini-bar ul.menu.medium-horizontal > li > ul.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 12rem;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0.25rem 0;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+  /* Below the Bootstrap nav dropdowns (z-index 1000) so the reading bar's own
+     flyout menus never cover the navigation. */
+  z-index: 999;
+}
+
+/* Open only when the menu button is activated (JS toggles aria-expanded)*/
+.mini-bar ul.menu.medium-horizontal > li > button[aria-expanded="true"] + ul.menu {
+  display: flex;
+}
+
+.mini-bar ul.menu.medium-horizontal ul.menu li button,
+.mini-bar ul.menu.medium-horizontal ul.menu li a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  background: none;
+  border: none;
+  color: #595959;
+  font: inherit;
+  text-align: left;
+  text-transform: none;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.mini-bar ul.menu.medium-horizontal ul.menu li button:hover,
+.mini-bar ul.menu.medium-horizontal ul.menu li a:hover,
+.mini-bar ul.menu.medium-horizontal ul.menu li button:focus,
+.mini-bar ul.menu.medium-horizontal ul.menu li a:focus {
+  background: rgba(0, 0, 0, 0.06);
+  color: #595959;
+}
+
+/* Hidden items (the custom-colour swatches until "Customise" is chosen). */
+.mini-bar ul.menu li[hidden] {
+  display: none;
+}
+
+/* Custom colour swatches. */
+.mini-bar input[type="color"] {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin-right: 0.25rem;
+  border: 1px solid #ccc;
+  background: none;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* Icon toggles (Dark mode, Italics) carry a tick badge when active. */
+.mini-bar .tf-icon-toggle .tf-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.mini-bar .tf-icon-toggle .tf-tick {
+  display: none;
+  position: absolute;
+  right: -9px;
+  bottom: -3px;
+  font-size: 0.6em;
+  line-height: 1;
+  color: #1C304A;
+  background: #fff;
+  border-radius: 50%;
+}
+.mini-bar .tf-icon-toggle .tf-tick i {
+  margin: 0;
+}
+.mini-bar .tf-icon-toggle[aria-pressed="true"] .tf-tick {
+  display: inline-flex;
+}
+
+/* custom fonts */
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../../common/fonts/opendyslexic/OpenDyslexic-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../../common/fonts/opendyslexic/OpenDyslexic-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* applying customised reading options */
+
+.text-format-region.tf-has-colour {
+  padding: 1rem;
+}
+
+.text-format-region.tf-has-font *:not([class*="fa"]) {
+  font-family: var(--tf-font) !important;
+}
+
+.text-format-region.tf-has-colour {
+  background-color: var(--tf-bg) !important;
+  color: var(--tf-fg) !important;
+  /* Ease colour-scheme changes so switching (e.g. white to black) is not
+     jarring, matching the draw-attention transition. */
+  transition: background-color 0.4s ease-out, color 0.4s ease-out;
+}
+.text-format-region.tf-has-colour * {
+  background-color: transparent !important;
+  color: var(--tf-fg) !important;
+  transition: background-color 0.4s ease-out, color 0.4s ease-out;
+}
+
+/* Moving to/from the default is a bigger jump, so longer transition. */
+.text-format-region.tf-default-transition,
+.text-format-region.tf-default-transition * {
+  transition: background-color 0.6s ease-out, color 0.6s ease-out;
+}
+
+/* Handles draw-attention by inverting when custom colours are active */
+.text-format-region.tf-has-colour .draw-attention,
+.text-format-region.tf-has-colour .draw-attention * {
+  background-color: var(--tf-fg) !important;
+  color: var(--tf-bg) !important;
+}
+
+/* For when reader has turned the draw-attention highlight off*/
+.text-format-region.tf-no-attention .draw-attention,
+.text-format-region.tf-no-attention .draw-attention * {
+  background-color: transparent !important;
+}
+.text-format-region.tf-has-colour.tf-no-attention .draw-attention,
+.text-format-region.tf-has-colour.tf-no-attention .draw-attention * {
+  background-color: transparent !important;
+  color: var(--tf-fg) !important;
+}
+.text-format-region.tf-no-attention .draw-attention:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Interactive controls now share the region background, so give them a
+   foreground-coloured border to stay visually delineated. */
+.text-format-region.tf-has-colour button,
+.text-format-region.tf-has-colour .button,
+.text-format-region.tf-has-colour input,
+.text-format-region.tf-has-colour select,
+.text-format-region.tf-has-colour textarea {
+  border-color: var(--tf-fg) !important;
+}
+
+.text-format-region.tf-has-colour table,
+.text-format-region.tf-has-colour thead,
+.text-format-region.tf-has-colour tbody,
+.text-format-region.tf-has-colour tfoot,
+.text-format-region.tf-has-colour tr,
+.text-format-region.tf-has-colour th,
+.text-format-region.tf-has-colour td {
+  border-color: color-mix(in srgb, var(--tf-fg) 50%, transparent) !important;
+}
+
+.text-format-region.tf-has-colour blockquote {
+  border-color: color-mix(in srgb, var(--tf-fg) 70%, transparent) !important;
+}
+
+.text-format-region.tf-no-italics *:not([class*="fa"]) {
+  font-style: normal !important;
+}
+
+/* The "Reading Options" toggle is hidden on desktop (the full bar shows). On
+   mobile it becomes the disclosure that expands/collapses the options panel. */
+.mini-bar .title-bar {
+  display: none;
+}
+
+.mini-bar .title-bar-title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 44px;
+  padding: 0 0.75rem;
+  background: none;
+  border: none;
+  color: #595959;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* The .menu-icon is a Foundation hamburger sprite; clarity has no Foundation, so
+   hide it and let the template's caret (.tf-options-caret) be the indicator. */
+.mini-bar .title-bar-title .menu-icon {
+  display: none;
+}
+
+.mini-bar .title-bar-title .tf-options-caret {
+  margin-left: auto;
+}
+
+.mini-bar .title-bar-title[aria-expanded="true"] .tf-options-caret {
+  transform: rotate(180deg);
+}
+
+/* One state (.tf-bar-hidden) drives both layouts. Desktop: a full hide. */
+@media (min-width: 768px) {
+  .reading-options-bar.tf-bar-hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* Mobile: the bar is not sticky and is never fully hidden — the toggle stays
+     visible and .tf-bar-hidden just collapses the options (expanded by
+     default). The close button is desktop-only. */
+  .reading-options-bar {
+    position: static;
+  }
+
+  .mini-bar .title-bar {
+    display: block;
+  }
+
+  .reading-options-bar.tf-bar-hidden #options-menu {
+    display: none;
+  }
+
+  .mini-bar .tf-close {
+    display: none;
+  }
+
+  .a11y-bar-show-item {
+    display: none;
+  }
+}
+
+/* end of reading options bar */
 
 /* ========================================================================
    Thumbnail Styles
@@ -708,12 +1020,6 @@ section[aria-label*="Results"] .article-item {
   border: 1px solid rgba(0, 0, 0, 0.06);
   padding: 2rem;
   margin-bottom: 1.5rem;
-}
-
-.sticky-top {
-  max-height: 100vh;
-  overflow-y: auto;
-  z-index: 999;
 }
 
 /* ========================================================================
@@ -852,8 +1158,9 @@ span + .btn-background {
     max-height: 100vh;
     overflow-y: auto;
     top: 60px;
-    z-index: 999;
+    z-index: 700;
 }
+
 
 /* #3611: Remove excess gap between caption and table */
 .table-caption {
@@ -1133,7 +1440,7 @@ a.fn-backref {
 }
 
 .navbar .a11y-toggle-host .a11y-toggle-summary {
-  color: var(--brand-primary, #2b2b2b);
+  color: #ffffff;
 }
 
 /* Focus Management */
@@ -1219,6 +1526,12 @@ main a:focus-visible,
 .btn-dark:focus-visible,
 .site-pagination > .btn:focus-visible,
 .pagination button:focus-visible,
+.a11y-switch:focus,
+.a11y-switch:focus-visible,
+.mini-bar ul.menu button:focus,
+.mini-bar ul.menu button:focus-visible,
+.mini-bar ul.menu a:focus,
+.mini-bar ul.menu a:focus-visible,
 input[type="text"]:focus-visible,
 input[type="email"]:focus-visible,
 input[type="password"]:focus-visible,
